@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = TheosExample1;
+	cell = PSLinkCell;
+	detail = TheosExample1ListController;
+	icon = TheosExample1.png;
+	isController = 1;
+	label = "Theos Example 1";
+    };
+}
