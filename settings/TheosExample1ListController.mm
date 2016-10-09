@@ -14,9 +14,28 @@
 {
 	[super viewDidLoad];
 
-	if (!self.table.tableHeaderView) {
-		self.table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 0.0f, CGFLOAT_MIN)];
-	}
+	CGRect frame = CGRectMake(0, 0, self.table.bounds.size.width, 127);
+
+	UIImage *headerImage = [[UIImage alloc]
+		initWithContentsOfFile:[[NSBundle bundleWithPath:@"/Library/PreferenceBundles/TheosExample1.bundle"] pathForResource:@"TheosExample1_Header" ofType:@"png"]];
+
+	UIImageView *headerView = [[UIImageView alloc] initWithFrame:frame];
+	[headerView setImage:headerImage];
+	headerView.backgroundColor = [UIColor blackColor];
+	[headerView setContentMode:UIViewContentModeScaleAspectFit];
+	[headerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+
+	self.table.tableHeaderView = headerView;
+}
+
+- (void)viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+
+	CGRect wrapperFrame = ((UIView *)self.table.subviews[0]).frame; // UITableViewWrapperView
+	CGRect frame = CGRectMake(wrapperFrame.origin.x, self.table.tableHeaderView.frame.origin.y, wrapperFrame.size.width, self.table.tableHeaderView.frame.size.height);
+
+	self.table.tableHeaderView.frame = frame;
 }
 
 // -(void)viewWillAppear:(BOOL)animated

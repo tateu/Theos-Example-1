@@ -1,7 +1,7 @@
 Package: net.example.theosexample1
 Name: Theos Example 1
 Depends: firmware (>=9.0), mobilesubstrate
-Version: 1.0.0
+Version: 1.0.1
 Architecture: iphoneos-arm
 Description: An example tweak to show off disabling/enabling items in the Preference Panel.
 Author: Your Name <you@example.net>

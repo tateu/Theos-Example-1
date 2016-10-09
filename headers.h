@@ -2,6 +2,7 @@
 #define _plistfile @"/var/mobile/Library/Preferences/net.example.theosexample1.plist"
 
 @interface PSTableCell : UITableViewCell
+- (id)initWithStyle:(NSInteger)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 @end
 
 @interface PSControlTableCell : PSTableCell
@@ -18,6 +19,7 @@
 @interface PSViewController : UIViewController
 - (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
 - (id)readPreferenceValue:(id)arg1;
+- (void)viewDidLayoutSubviews;
 @end
 
 @interface PSListController : PSViewController {
